@@ -1,9 +1,11 @@
-// import { Box } from "@mui/material";
+import {  Divider } from "@mui/material";
 import { CustomCard } from "../components/CustomCard";
 import { SectionHeader } from "../components/SectionHeader";
-import { useEffect, 
-  // useRef 
+import {
+  useEffect,
+  // useRef
 } from "react";
+import { RadiusBackground } from "../components/RadiusBackground";
 
 export const LandingPage = () => {
   const padding = "py-[192px] px-[120px]";
@@ -37,12 +39,35 @@ export const LandingPage = () => {
   //   { label: "Next steps", ref: "" },
   // ];
 
+  const team = [
+    {
+      member: "Jey Kim",
+      title: "UI/UX Designer",
+      description:
+        "Multi-disciplinary designer and creative living in Kingston, Jamaica.",
+      url: "",
+    },
+    {
+      member: "Kenneth Williams Jr.",
+      title: "Back-End Developer",
+      description:
+        "Skilled back-end developer with a strong background in server-side logic, database management, and API integration. Passionate about optimizing system performance and ensuring seamless communication between server and client applications.",
+      url: "",
+    },
+    {
+      member: "Michael Lue",
+      title: "Front-End Developer",
+      description:
+        "Experienced front-end developer with a keen eye for detail and a passion for creating dynamic, responsive, and user-friendly web interfaces. Expert in JavaScript, HTML, CSS, and modern frameworks such as React and Angular.",
+      url: "",
+    },
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
       // const navHeight = navRef.current.offsetHeight;
       // const firstSectionOffset = document.getElementById("project").offsetTop;
       // const scrollY = window.scrollY;
-
       // if (scrollY >= firstSectionOffset) {
       //   setNavOffset(scrollY - firstSectionOffset);
       // } else {
@@ -101,13 +126,77 @@ export const LandingPage = () => {
             began with us working together trying to make a mobile game. 
             We've been lucky to have each other to share our experiences and 
             for sanity checks throughout our careers.`}
+            stylePreference={{ leftAligned: true, twoColumns: true }}
           />
-
-          <SectionHeader
-            subtext={`The Problem`}
-            title={`There are many challenges in hiring household services`}
-            text={`We conducted interviews to properly identify and define the needs.`}
-          />
+          <div className="flex gap-[8px]">
+            {team.map((item, index) => (
+              <CustomCard
+                key={index}
+                label={item.member}
+                title={item.title}
+                text={item.description}
+                url={item.url}
+                version="medium"
+              />
+            ))}
+          </div>
+          <Divider sx={{ borderBottomWidth: "5px", borderColor: "#B0BEC5" }} />
+          <div className="flex flex-col gap-[192px] items-center">
+            <SectionHeader
+              subtext={`The Problem`}
+              title={`There are many challenges in hiring household services`}
+              text={`We conducted interviews to properly identify and define the needs.`}
+            />
+            <div className="flex flex-col gap-[8px]">
+              <RadiusBackground
+                content={
+                  <>
+                    <p className="text-[#FDFDFD]">
+                      Many people were unsure about which service providers were
+                      reliable
+                    </p>
+                  </>
+                }
+              />
+              <RadiusBackground
+                content={
+                  <>
+                    <div className="flex flex-col gap-[4px]">
+                      <div className="flex gap-[4px]">
+                        {[
+                          {
+                            text: "Some providers would arrive late or not at all.",
+                          },
+                          {
+                            text: "Many people struggled to find reliable contact information.",
+                          },
+                        ].map((item, index) => (
+                          <div
+                            key={index}
+                            className="bg-[#37474F] w-fit py-[16px] px-[36px] rounded-lg flex flex-col gap-[16px]"
+                          >
+                            <p>Icon</p>
+                            <p className="text-[#ECEFF1] font-[400]">
+                              {item.text}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="bg-[#C8E6C9] rounded-lg py-[16px] px-[36px]">
+                        <p className="uppercase font-[600] text-[#2E7D32]">
+                          Research Finding
+                        </p>
+                        <p>
+                          What if service providers were accountable and
+                          incentivized to be reliable?
+                        </p>
+                      </div>
+                    </div>
+                  </>
+                }
+              />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -160,6 +249,7 @@ export const LandingPage = () => {
               label={item.label}
               text={item.description}
               url={item.url}
+              version="large"
             />
           ))}
         </div>
