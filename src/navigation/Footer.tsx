@@ -13,7 +13,7 @@ export const Footer = () => {
   ];
 
   return (
-    <div className="bg-[#37474F] flex justify-center py-[48px] px-[120px]">
+    <div className="bg-[#37474F] flex justify-center px-[32px] py-[32px] sm:py-[48px] sm:px-[120px]">
       <div className="w-[100%] max-w-[1200px] flex flex-col gap-[48px]">
         <div className="flex flex-col gap-[24px] sm:gap-[0px] sm:flex-row items-center sm:items-start justify-between">
           <div>
