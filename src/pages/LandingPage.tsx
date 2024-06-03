@@ -1,7 +1,9 @@
-import { Box } from "@mui/material";
+// import { Box } from "@mui/material";
 import { CustomCard } from "../components/CustomCard";
 import { SectionHeader } from "../components/SectionHeader";
-import { useEffect, useRef } from "react";
+import { useEffect, 
+  // useRef 
+} from "react";
 
 export const LandingPage = () => {
   const padding = "py-[192px] px-[120px]";
@@ -9,7 +11,7 @@ export const LandingPage = () => {
   const darkBackground = "#263238";
   const locationStyling = "flex justify-end";
   // const [navOffset, setNavOffset] = useState(0);
-  const navRef = useRef(null);
+  // const navRef = useRef(null);
 
   const links = [
     {
@@ -26,14 +28,14 @@ export const LandingPage = () => {
     },
   ];
 
-  const innerNavigation = [
-    { label: "Introduction", ref: "introduction" },
-    { label: "The team", ref: "" },
-    { label: "The problem", ref: "" },
-    { label: "Timeline", ref: "" },
-    { label: "Retrospective", ref: "" },
-    { label: "Next steps", ref: "" },
-  ];
+  // const innerNavigation = [
+  //   { label: "Introduction", ref: "introduction" },
+  //   { label: "The team", ref: "" },
+  //   { label: "The problem", ref: "" },
+  //   { label: "Timeline", ref: "" },
+  //   { label: "Retrospective", ref: "" },
+  //   { label: "Next steps", ref: "" },
+  // ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +56,7 @@ export const LandingPage = () => {
 
   return (
     <div className="relative">
-      <Box
+      {/* <Box
         ref={navRef}
         sx={{
           backgroundColor: "#263238",
@@ -76,7 +78,7 @@ export const LandingPage = () => {
             {item.label}
           </p>
         ))}
-      </Box>
+      </Box> */}
 
       <div className={`bg-[#263238] py-[48px] px-[120px] ${locationStyling}`}>
         <div className="max-w-[550px] text-center flex flex-col justify-center items-center">
