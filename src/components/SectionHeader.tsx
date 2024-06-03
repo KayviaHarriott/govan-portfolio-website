@@ -21,7 +21,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       </h5>
       <h1
         className={`text-[${
-          stylePreference?.darkBackground ? `#263238` : `#ECEFF1`
+          stylePreference?.darkBackground ? `#ECEFF1` : `#263238`
         }] text-[32px] font-[700] text-title-custom`}
       >
         {title}
