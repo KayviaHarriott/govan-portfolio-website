@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { CustomCard } from "../components/CustomCard";
 import { SectionHeader } from "../components/SectionHeader";
 
@@ -21,11 +22,43 @@ export const LandingPage = () => {
       url: "/design",
     },
   ];
+
+  const innerNavigation = [
+    { label: "Introduction", ref: "introduction" },
+    { label: "The team", ref: "" },
+    { label: "The problem", ref: "" },
+    { label: "Timeline", ref: "" },
+    { label: "Retrospective", ref: "" },
+    { label: "Next steps", ref: "" },
+  ];
   return (
-    <div>
-      <div
-        className={`bg-[${darkBackground}] py-[48px] px-[120px] ${locationStyling}`}
-      >
+    <div className="relative">
+    
+        <Box
+          sx={{
+            backgroundColor: "#263238",
+            color: "#CFD8DC",
+            width: "fit-content",
+            padding: "24px 18px",
+            border: "1px solid #455A64",
+            borderRadius: "24px",
+            position: "sticky",
+            top: "50px",
+            left: "50px",
+            zIndex: "10",
+           
+          }}
+          className="flex flex-col gap-[16px]"
+        >
+          {innerNavigation.map((item, index) => (
+            <p key={index} className="font-[700] py-[6px] px-[16px]">
+              {item.label}
+            </p>
+          ))}
+        </Box>
+     
+      <div className={`bg-[#263238] py-[48px] px-[120px] ${locationStyling}`}>
+      
         <div className="max-w-[550px] text-center flex flex-col justify-center items-center">
           <img className="w-[156px]" src="/images/GovanLogo_Square.png" />
           <h1 className="text-[64px] font-[700] text-[#FFFF]">Project</h1>
@@ -95,7 +128,9 @@ export const LandingPage = () => {
           />
         </div>
       </div>
-      <div className={`bg-[${darkBackground}] py-[96px] px-[120px] ${locationStyling}`}>
+      <div
+        className={`bg-[${darkBackground}] px-[16px] py-[32px] sm:py-[96px] sm:px-[120px] ${locationStyling}`}
+      >
         <div className="flex flex-col sm:flex-row gap-[8px]">
           {links.map((item, index) => (
             <CustomCard
