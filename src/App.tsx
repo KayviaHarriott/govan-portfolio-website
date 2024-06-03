@@ -7,6 +7,7 @@ import { Design } from "./pages/Design";
 import { NavigationBar } from "./navigation/NavigationBar";
 // Supports weights 200-800
 import '@fontsource-variable/bricolage-grotesque';
+import { Footer } from "./navigation/Footer";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path={"/design"} element={<Design />} />
         </Route>
       </Routes>
+    <Footer/>
   </BrowserRouter>
   )
 }
