@@ -17,7 +17,7 @@ export const NavigationBar = () => {
   ];
   return (
     <div className="flex justify-center px-[120px] py-[20px]">
-      <div className="w-[100%] max-w-[1200px] flex items-center gap-[70px]">
+      <div className="w-[100%] max-w-[1200px] flex flex-col sm:flex-row items-center gap-[24px] sm:gap-[70px]">
         <img className="w-[100px]" src={"/images/GovanLogo.png"} />
         <div className="flex gap-[70px] font-[700] text-[#263238]">
             {links.map((item, index) => (
