@@ -15,7 +15,7 @@ export const Footer = () => {
   return (
     <div className="bg-[#37474F] flex justify-center px-[32px] py-[32px] sm:py-[48px] sm:px-[120px]">
       <div className="w-[100%] max-w-[1200px] flex flex-col gap-[48px]">
-        <div className="flex flex-col gap-[24px] sm:gap-[0px] sm:flex-row items-center sm:items-start justify-between">
+        <div className="flex flex-col gap-[40px] sm:gap-[0px] sm:flex-row items-center sm:items-start justify-between">
           <div>
             <img className="w-[86px]" src={"/images/GovanLogo_Square.png"} />
           </div>
@@ -25,7 +25,10 @@ export const Footer = () => {
 
             <ul className="flex flex-col gap-[24px] text-[#ECEFF1] ">
               {team.map((item, index) => (
-                <li key={index} className="flex justify-center sm:justify-start">
+                <li
+                  key={index}
+                  className="flex justify-center sm:justify-start"
+                >
                   <a
                     href={item.url}
                     target="_blank"
