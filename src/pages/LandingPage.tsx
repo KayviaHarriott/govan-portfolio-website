@@ -6,7 +6,7 @@ import {
   // useRef
 } from "react";
 import { RadiusBackground } from "../components/RadiusBackground";
-import {CustomTimeline} from "../components/Timeline";
+import { CustomTimeline } from "../components/Timeline";
 
 export const LandingPage = () => {
   const padding = "py-[192px] px-[120px]";
@@ -42,24 +42,24 @@ export const LandingPage = () => {
 
   const team = [
     {
-      member: "Jey Kim",
+      member: {firstName: "Jey", lastName: "Kim"},
       title: "UI/UX Designer",
       description:
         "Multi-disciplinary designer and creative living in Kingston, Jamaica.",
       url: "",
     },
     {
-      member: "Kenneth Williams Jr.",
+      member: {firstName: "Kenneth", lastName: "Williams Jr."},
       title: "Back-End Developer",
       description:
-        "Skilled back-end developer with a strong background in server-side logic, database management, and API integration. Passionate about optimizing system performance and ensuring seamless communication between server and client applications.",
+        "Skilled back-end developer with a strong background in server-side logic.",
       url: "",
     },
     {
-      member: "Michael Lue",
+      member:{firstName: "Michael", lastName: "Lue"},
       title: "Front-End Developer",
       description:
-        "Experienced front-end developer with a keen eye for detail and a passion for creating dynamic, responsive, and user-friendly web interfaces. Expert in JavaScript, HTML, CSS, and modern frameworks such as React and Angular.",
+        "Experienced front-end developer with a keen eye for detail ",
       url: "",
     },
   ];
@@ -107,23 +107,23 @@ export const LandingPage = () => {
       </Box> */}
 
       <div className={`bg-[#263238] py-[48px] px-[120px] ${locationStyling} `}>
-     <div className="w-[100%] max-w-[1000px] flex justify-center">
-         <div className="max-w-[1000px]">
+        <div className="w-[100%] max-w-[1000px] flex justify-center">
+          <div className="max-w-[1000px]">
             <div className="max-w-[550px] text-center flex flex-col justify-center items-center">
               <img className="w-[156px]" src="/images/GovanLogo_Square.png" />
               <h1 className="text-[64px] font-[700] text-[#FFFF]">Project</h1>
               <p className="text-[#CFD8DC] ">
-                A platform that streamlines the process of finding, scheduling and
-                reviewing household services
+                A platform that streamlines the process of finding, scheduling
+                and reviewing household services
               </p>
             </div>
-         </div>
-     </div>
+          </div>
+        </div>
       </div>
       <div
         className={`bg-[${lightBackground}] py-[192px] px-[120px] ${padding}  ${locationStyling} flex justify-end items-end`}
       >
-       <div className="max-w-[1000px]">
+        <div className="max-w-[1000px]">
           <div className={`flex flex-col gap-[96px]`}>
             <SectionHeader
               subtext={`The Team`}
@@ -138,7 +138,9 @@ export const LandingPage = () => {
               {team.map((item, index) => (
                 <CustomCard
                   key={index}
-                  label={item.member}
+                  // label={item.member}
+                  firstName={item.member.firstName}
+                  lastName={item.member.lastName}
                   title={item.title}
                   text={item.description}
                   url={item.url}
@@ -146,7 +148,9 @@ export const LandingPage = () => {
                 />
               ))}
             </div>
-            <Divider sx={{ borderBottomWidth: "5px", borderColor: "#B0BEC5" }} />
+            <Divider
+              sx={{ borderBottomWidth: "5px", borderColor: "#B0BEC5" }}
+            />
             <div className="flex flex-col gap-[192px] items-center">
               <SectionHeader
                 subtext={`The Problem`}
@@ -158,8 +162,8 @@ export const LandingPage = () => {
                   content={
                     <>
                       <p className="text-[#FDFDFD]">
-                        Many people were unsure about which service providers were
-                        reliable
+                        Many people were unsure about which service providers
+                        were reliable
                       </p>
                     </>
                   }
@@ -204,27 +208,27 @@ export const LandingPage = () => {
               </div>
             </div>
           </div>
-       </div>
+        </div>
       </div>
 
       <div className={`bg-[${darkBackground}] ${padding}  ${locationStyling}`}>
-       <div>
+        <div>
           <SectionHeader
             title={`Timeline`}
             stylePreference={{ darkBackground: true }}
           />
           <div className="bg-[#37474F] rounded-lg">
             <CustomTimeline
-            year="2024"
-              events={
-               [ { month: "Jan", text: "DevOps" },
+              year="2024"
+              events={[
+                { month: "Jan", text: "DevOps" },
                 { month: "Feb", text: "Backend" },
                 { month: "Mar", text: "Frontend" },
-                { month: "May", text: "Hiatus" }]
-              }
+                { month: "May", text: "Hiatus" },
+              ]}
             />
           </div>
-       </div>
+        </div>
       </div>
       <div
         className={`bg-[${lightBackground}] py-[192px] px-[120px] ${padding}  ${locationStyling}`}
