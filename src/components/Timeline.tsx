@@ -12,20 +12,26 @@ interface TimelineProps {
 
 export const CustomTimeline: React.FC<TimelineProps> = ({ year, events }) => {
   return (
-   <div>
-    <p>{year}</p>
-        <Timeline sx={{width: ""}}>
-          {events.map((item, index) => (
-            <TimelineItem key={index}>
-              <TimelineSeparator>
-                <TimelineDot />
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent sx={{width: "200px"}}className="flex">{item.month} {item.text}</TimelineContent>
-            </TimelineItem>
-          ))}
-        </Timeline>
-   </div>
-  
+    <div className="bg-[#37474F] rounded-xl p-6">
+      <p className="text-[24px] font-[700] text-[white]">{year}</p>
+      <Timeline sx={{ width: "" }}>
+        {events.map((item, index) => (
+          <TimelineItem key={index}>
+            <TimelineSeparator>
+              <TimelineDot
+                sx={{ backgroundColor: "#FB5B03", boxShadow: "none" }}
+              />
+              <TimelineConnector sx={{ backgroundColor: "#FB5B03" }} />
+            </TimelineSeparator>
+            <TimelineContent
+              sx={{ width: "200px", color: "#ECEFF1" }}
+              className="flex"
+            >
+              {item.month} {item.text}
+            </TimelineContent>
+          </TimelineItem>
+        ))}
+      </Timeline>
+    </div>
   );
 };

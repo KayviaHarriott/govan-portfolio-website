@@ -46,7 +46,7 @@ export const CustomCard: React.FC<CustomCardProps> = ({
       return (
         <Box
           sx={{
-            border: "2px solid #546E7A",
+            border: "2px solid #B0BEC5",
             borderRadius: "24px",
             padding: "24px 36px",
             maxWidth: "500px",

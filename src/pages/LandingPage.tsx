@@ -18,8 +18,6 @@ export const LandingPage = () => {
   const lightBackground = "#ECEFF1";
   const darkBackground = "#263238";
   const locationStyling = "flex justify-end";
-  // const [navOffset, setNavOffset] = useState(0);
-  // const navRef = useRef(null);
 
   const links = [
     {
@@ -35,15 +33,6 @@ export const LandingPage = () => {
       url: "/design",
     },
   ];
-
-  // const innerNavigation = [
-  //   { label: "Introduction", ref: "introduction" },
-  //   { label: "The team", ref: "" },
-  //   { label: "The problem", ref: "" },
-  //   { label: "Timeline", ref: "" },
-  //   { label: "Retrospective", ref: "" },
-  //   { label: "Next steps", ref: "" },
-  // ];
 
   const team = [
     {
@@ -69,22 +58,6 @@ export const LandingPage = () => {
     },
   ];
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const navHeight = navRef.current.offsetHeight;
-  //     const firstSectionOffset = document.getElementById("project").offsetTop;
-  //     const scrollY = window.scrollY;
-  //     if (scrollY >= firstSectionOffset) {
-  //       setNavOffset(scrollY - firstSectionOffset);
-  //     } else {
-  //       setNavOffset(0);
-  //     }
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
-
   const introductionRef = useRef<HTMLDivElement>(null);
   const theTeamRef = useRef<HTMLDivElement>(null);
   const theProblemRef = useRef<HTMLDivElement>(null);
@@ -94,12 +67,6 @@ export const LandingPage = () => {
 
   return (
     <div className="relative">
-      <SectionLayout backgroundColor="#263238" content={<div> One</div>} />
-      <div className="fixed top-30">{/* <p>Menu</p>{" "} */}</div>
-      <div className="flex w-[100%]">
-        <div className="bg-[pink] w-1/3">One</div>
-        <div className="bg-[green] w-2/3">Two</div>
-      </div>
       <InternalMenu
         links={[
           { label: "Introduction", ref: introductionRef },
@@ -111,58 +78,23 @@ export const LandingPage = () => {
         ]}
       />
 
-      {/* <Box
-        ref={navRef}
-        sx={{
-          backgroundColor: "#263238",
-          color: "#CFD8DC",
-          width: "fit-content",
-          padding: "24px 18px",
-          border: "1px solid #455A64",
-          borderRadius: "24px",
-          position: "sticky",
-          top: 100,
-          left: 40,
-          // zIndex: "10",
-          marginTop: "-346px"
-        }}
-        className="flex flex-col gap-[16px]"
-      >
-        {innerNavigation.map((item, index) => (
-          <p key={index} className="font-[700] py-[6px] px-[16px]">
-            {item.label}
-          </p>
-        ))}
-      </Box> */}
-
-      <div className={`bg-[#263238] py-[48px] px-[120px] ${locationStyling} `}>
-        <div className="w-[100%] max-w-[1000px] flex justify-center">
-          <div className="max-w-[1000px]">
-            <div className="max-w-[550px] text-center flex flex-col justify-center items-center">
-              <img className="w-[156px]" src="/images/GovanLogo_Square.png" />
-              <h1 className="text-[64px] font-[700] text-[#FFFF]">Project</h1>
-              <p className="text-[#CFD8DC] ">
-                A platform that streamlines the process of finding, scheduling
-                and reviewing household services
-              </p>
+      <SectionLayout backgroundColor="#263238" content={<div>Project</div>} />
+      <SectionLayout
+        backgroundColor="#ECEFF1"
+        content={
+          <div className="flex flex-col gap-[192px]">
+            <div ref={theTeamRef}>
+              <SectionHeader
+                subtext={`The Team`}
+                title={`Who we are`}
+                text={`We're all friends from high school and our friendship 
+                began with us working together trying to make a mobile game. 
+                We've been lucky to have each other to share our experiences and 
+                for sanity checks throughout our careers.`}
+                stylePreference={{ leftAligned: true, twoColumns: true }}
+              />
             </div>
-          </div>
-        </div>
-      </div>
-      <div
-        className={`bg-[${lightBackground}] py-[192px] px-[120px] ${padding}  ${locationStyling} flex justify-end items-end`}
-      >
-        <div ref={theTeamRef} className="max-w-[1000px]">
-          <div className={`flex flex-col gap-[96px]`}>
-            <SectionHeader
-              subtext={`The Team`}
-              title={`Who we are`}
-              text={`We're all friends from high school and our friendship 
-              began with us working together trying to make a mobile game. 
-              We've been lucky to have each other to share our experiences and 
-              for sanity checks throughout our careers.`}
-              stylePreference={{ leftAligned: true, twoColumns: true }}
-            />
+
             <div className="flex gap-[8px]">
               {team.map((item, index) => (
                 <CustomCard
@@ -180,316 +112,268 @@ export const LandingPage = () => {
             <Divider
               sx={{ borderBottomWidth: "5px", borderColor: "#B0BEC5" }}
             />
-            <div className="flex flex-col gap-[192px] items-center">
+
+            <div ref={theProblemRef}>
               <SectionHeader
                 subtext={`The Problem`}
                 title={`There are many challenges in hiring household services`}
                 text={`We conducted interviews to properly identify and define the needs.`}
               />
-              <div className="flex flex-col gap-[8px]">
-                <RadiusBackground
-                  content={
-                    <>
-                      <p className="text-[#FDFDFD]">
-                        Many people were unsure about which service providers
-                        were reliable
-                      </p>
-                    </>
-                  }
-                />
-                <RadiusBackground
-                  content={
-                    <>
-                      <div className="flex flex-col gap-[8px]">
-                        <div className="flex gap-[8px]">
-                          {[
-                            {
-                              text: "Some providers would arrive late or not at all.",
-                            },
-                            {
-                              text: "Many people struggled to find reliable contact information.",
-                            },
-                          ].map((item, index) => (
-                            <div
-                              key={index}
-                              className="bg-[#37474F] w-fit py-[16px] px-[36px] rounded-lg flex flex-col gap-[16px]"
-                            >
-                              <p>Icon</p>
-                              <p className="text-[#ECEFF1] font-[400]">
-                                {item.text}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                        <div className="bg-[#C8E6C9] rounded-lg py-[16px] px-[36px]">
-                          <p className="uppercase font-[600] text-[#2E7D32]">
-                            Research Finding
-                          </p>
-                          <p>
-                            What if service providers were accountable and
-                            incentivized to be reliable?
-                          </p>
-                        </div>
+            </div>
+            <div className="flex flex-col gap-[8px]">
+              <RadiusBackground
+                content={
+                  <>
+                    <p className="text-[#FDFDFD]">
+                      Many people were unsure about which service providers were
+                      reliable
+                    </p>
+                  </>
+                }
+              />
+              <RadiusBackground
+                content={
+                  <>
+                    <div className="flex flex-col gap-[8px]">
+                      <div className="flex gap-[8px]">
+                        {[
+                          {
+                            text: "Some providers would arrive late or not at all.",
+                          },
+                          {
+                            text: "Many people struggled to find reliable contact information.",
+                          },
+                        ].map((item, index) => (
+                          <div
+                            key={index}
+                            className="bg-[#37474F] w-fit py-[16px] px-[36px] rounded-lg flex flex-col gap-[16px]"
+                          >
+                            <p>Icon</p>
+                            <p className="text-[#ECEFF1] font-[400]">
+                              {item.text}
+                            </p>
+                          </div>
+                        ))}
                       </div>
-                    </>
-                  }
-                />
-              </div>
-              <div className="flex flex-col gap-[8px]">
-                <RadiusBackground
-                  content={
-                    <>
-                      <p className="text-[#FDFDFD]">
-                        People were at loss for judging what costs were
-                        reasonable
-                      </p>
-                    </>
-                  }
-                />
-                <RadiusBackground
-                  content={
-                    <>
-                      <div className="flex flex-col gap-[8px]">
-                        <div className="flex gap-[8px]">
-                          {[
-                            {
-                              text: "Costs were not available upfront and contact had to be made in order to find out",
-                            },
-                            {
-                              text: "Word of mouth is the main way people find service providers which is anecdotal",
-                            },
-                          ].map((item, index) => (
-                            <div
-                              key={index}
-                              className="bg-[#37474F] w-fit py-[16px] px-[36px] rounded-lg flex flex-col gap-[16px]"
-                            >
-                              <p>Icon</p>
-                              <p className="text-[#ECEFF1] font-[400]">
-                                {item.text}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                        <div className="bg-[#C8E6C9] rounded-lg py-[16px] px-[36px]">
-                          <p className="uppercase font-[600] text-[#2E7D32]">
-                            Research Finding
-                          </p>
-                          <p>
-                            What if service providers were accountable and
-                            incentivized to be reliable?
-                          </p>
-                        </div>
+                      <div className="bg-[#C8E6C9] rounded-lg py-[16px] px-[36px]">
+                        <p className="uppercase font-[600] text-[#2E7D32]">
+                          Research Finding
+                        </p>
+                        <p>
+                          What if service providers were accountable and
+                          incentivized to be reliable?
+                        </p>
                       </div>
-                    </>
-                  }
-                />
-              </div>
+                    </div>
+                  </>
+                }
+              />
+            </div>
+            <div className="flex flex-col gap-[8px]">
+              <RadiusBackground
+                content={
+                  <>
+                    <p className="text-[#FDFDFD]">
+                      People were at loss for judging what costs were reasonable
+                    </p>
+                  </>
+                }
+              />
+              <RadiusBackground
+                content={
+                  <>
+                    <div className="flex flex-col gap-[8px]">
+                      <div className="flex gap-[8px]">
+                        {[
+                          {
+                            text: "Costs were not available upfront and contact had to be made in order to find out",
+                          },
+                          {
+                            text: "Word of mouth is the main way people find service providers which is anecdotal",
+                          },
+                        ].map((item, index) => (
+                          <div
+                            key={index}
+                            className="bg-[#37474F] w-fit py-[16px] px-[36px] rounded-lg flex flex-col gap-[16px]"
+                          >
+                            <p>Icon</p>
+                            <p className="text-[#ECEFF1] font-[400]">
+                              {item.text}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="bg-[#C8E6C9] rounded-lg py-[16px] px-[36px]">
+                        <p className="uppercase font-[600] text-[#2E7D32]">
+                          Research Finding
+                        </p>
+                        <p>
+                          What if service providers were accountable and
+                          incentivized to be reliable?
+                        </p>
+                      </div>
+                    </div>
+                  </>
+                }
+              />
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className={`bg-[${darkBackground}] ${padding}  ${locationStyling}`}>
-        <div>
-          <SectionHeader
-            title={`Timeline`}
-            stylePreference={{ darkBackground: true }}
-          />
-          <div className="bg-[#37474F] rounded-lg">
-            <CustomTimeline
-              year="2024"
-              events={[
-                { month: "Jan", text: "DevOps" },
-                { month: "Feb", text: "Backend" },
-                { month: "Mar", text: "Frontend" },
-                { month: "May", text: "Hiatus" },
-              ]}
-            />
-          </div>
-        </div>
-      </div>
-      <div
-        className={`bg-[${lightBackground}] ${padding}  ${locationStyling} flex justify-end items-end`}
-      >
-        <div className="flex flex-col gap-[192px] w-[100%]  max-w-[1000px] items-center">
-          <SectionHeader
-            subtext={`Retrospective`}
-            title={`What we could have done better`}
-            text={`This was all our first times carrying out an end-to-end development 
-                    plan for a product and we had many success and mistakes.`}
-          />
-          <div className="flex flex-col gap-[8px] w-[100%]">
-            <RadiusBackground
-              content={
-                <>
-                  <div className="flex gap-[24px] ">
-                    <p className="text-[#FDFDFD] w-[400px]">
-                      Our MVP wasn't small enough
-                    </p>
-                    <p className="max-w-[400px] text-[#CFD8DC]">
-                      In our attempt to keep it as small as we could but
-                      <br></br> we made several mistakes.
-                    </p>
-                  </div>
-                </>
-              }
-            />
-            <RadiusBackground
-              content={
-                <>
-                  <div className="">
-                    <div className="flex flex-col gap-[8px]">
-                      {[
-                        {
-                          text: "In-app payment system",
-                        },
-                        {
-                          text: "There should have been less service categories",
-                        },
-                        {
-                          text: "In-app offers, deals, or special offers",
-                        },
-                      ].map((item, index) => (
-                        <div
-                          key={index}
-                          className="bg-[#37474F] py-[16px] px-[36px] rounded-lg flex  gap-[16px]"
-                        >
-                          <p>Icon</p>
-                          <p className="text-[#ECEFF1] font-[400]">
-                            {item.text}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </>
-              }
-            />
-          </div>
-          <div className="flex flex-col gap-[8px] w-[100%]">
-            <RadiusBackground
-              content={
-                <>
-                  <div className="flex gap-[24px] ">
-                    <p className="text-[#FDFDFD] w-[400px]">
-                      We should have been more agile
-                    </p>
-                    <p className="max-w-[400px] text-[#CFD8DC]">
-                      In our attempt to keep it as small as we could but
-                      <br></br> we made several mistakes.
-                    </p>
-                  </div>
-                </>
-              }
-            />
-            <RadiusBackground
-              content={
-                <>
-                  <div className="">
-                    <div className="flex flex-col gap-[8px]">
-                      {[
-                        {
-                          text: "Estimating tasks, overly documenting and weekly sprints actually negatively the work",
-                        },
-                        {
-                          text: "Weekly working meetings would have been a better use of the time",
-                        },
-                      ].map((item, index) => (
-                        <div
-                          key={index}
-                          className="bg-[#37474F] py-[16px] px-[36px] rounded-lg flex  gap-[16px]"
-                        >
-                          <p>Icon</p>
-                          <p className="text-[#ECEFF1] font-[400]">
-                            {item.text}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </>
-              }
-            />
-          </div>
-          <Divider
-            sx={{
-              borderBottomWidth: "5px",
-              borderColor: "#B0BEC5",
-              width: "100%",
-            }}
-          />
-          <SectionHeader
-            subtext={`Next Steps`}
-            title={`Where we are`}
-            text={`This was all our first times carrying out an end-to-end 
-            development plan for a product and we had many success and mistakes.`}
-          />
-          <div className="w-[100%]">
+        }
+      />
+      <SectionLayout
+        backgroundColor="#263238"
+        content={
+          <div>
             <SectionHeader
-              subtext={`Philosophy`}
-              title={
-                <div>
-                  {" "}
-                  <p>Slow is smooth.</p>
-                  <p>Smooth is fast.</p>
-                </div>
-              }
-              text={
-                <div className="flex flex-col gap-[24px]">
-                  <p>
-                    This was our slogan when starting this project. In the past,
-                    we felt disappointed when projects didn't pan out but we
-                    decided we needed a change of mindset in approaching
-                    projects.
-                  </p>
-                  <p>
-                    This was a labour of love for Jamaica, of camaraderie
-                    between 3 close friends and a project to challenge
-                    ourselves. We hope you will return when we follow up with
-                    more updates!
-                  </p>
-                </div>
-              }
-              stylePreference={{ leftAligned: true, twoColumns: true }}
+              title={`Timeline`}
+              stylePreference={{ darkBackground: true }}
             />
+            <div className="flex gap-2">
+              <CustomTimeline
+                year="2024"
+                events={[
+                  { month: "Jan", text: "DevOps" },
+                  { month: "Feb", text: "Backend" },
+                  { month: "Mar", text: "Frontend" },
+                  { month: "May", text: "Hiatus" },
+                ]}
+              />
+              <CustomTimeline
+                year="2023"
+                events={[
+                  { month: "Jan", text: "Documentation Research" },
+                  { month: "Mar", text: "Hiatus" },
+                  {
+                    month: "Sep",
+                    text: "Research Interviews Competitive Analysis",
+                  },
+                  { month: "Oct", text: "UX Design" },
+                  { month: "Nov", text: "Architecture" },
+                  { month: "Dec", text: "UI Design" },
+                ]}
+              />
+              <CustomTimeline
+                year="2022"
+                events={[{ month: "Nov", text: "Ideation Games night" }]}
+              />
+            </div>
           </div>
-          <div className="w-[100%]">
+        }
+      />
+      <SectionLayout
+        backgroundColor="#ECEFF1"
+        content={
+          <div className="flex flex-col gap-[192px]">
+            {" "}
             <SectionHeader
-              subtext={`Current Status`}
-              title={`Indefinite hiatus`}
-              text={
-                <div className="flex flex-col gap-[24px]">
-                  <p>
-                    We still haven't completed Govan with FE and a lot of
-                    research still needs to be done.
-                  </p>
-                  <p>
-                    We've had to put things on hiatus at the moment with one of
-                    the team migrating, one member getting familiar with a new
-                    workplace and another adjusting to a change in career.
-                  </p>
-                </div>
-              }
-              stylePreference={{ leftAligned: true, twoColumns: true }}
+              subtext={`Retrospective`}
+              title={`What we could have done better`}
+              text={`This was all our first times carrying out an end-to-end development 
+                  plan for a product and we had many success and mistakes.`}
+            />
+            <div className="flex flex-col gap-[8px]">
+              <RadiusBackground
+                content={
+                  <>
+                    <div className="flex gap-[24px] ">
+                      <p className="text-[#FDFDFD] w-[400px]">
+                        Our MVP wasn't small enough
+                      </p>
+                      <p className="max-w-[400px] text-[#CFD8DC]">
+                        In our attempt to keep it as small as we could but
+                        <br></br> we made several mistakes.
+                      </p>
+                    </div>
+                  </>
+                }
+              />
+              <RadiusBackground
+                content={
+                  <>
+                    <div className="">
+                      <div className="flex flex-col gap-[8px]">
+                        {[
+                          {
+                            text: "In-app payment system",
+                          },
+                          {
+                            text: "There should have been less service categories",
+                          },
+                          {
+                            text: "In-app offers, deals, or special offers",
+                          },
+                        ].map((item, index) => (
+                          <div
+                            key={index}
+                            className="bg-[#37474F] py-[16px] px-[36px] rounded-lg flex  gap-[16px]"
+                          >
+                            <p>Icon</p>
+                            <p className="text-[#ECEFF1] font-[400]">
+                              {item.text}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                }
+              />
+            </div>
+            <div className="flex flex-col gap-[8px]">
+              <RadiusBackground
+                content={
+                  <>
+                    <div className="flex gap-[24px] ">
+                      <p className="text-[#FDFDFD] w-[400px]">
+                        We should have been more agile
+                      </p>
+                      <p className="max-w-[400px] text-[#CFD8DC]">
+                        In our attempt to keep it as small as we could but
+                        <br></br> we made several mistakes.
+                      </p>
+                    </div>
+                  </>
+                }
+              />
+              <RadiusBackground
+                content={
+                  <>
+                    <div className="">
+                      <div className="flex flex-col gap-[8px]">
+                        {[
+                          {
+                            text: "Estimating tasks, overly documenting and weekly sprints actually negatively the work",
+                          },
+                          {
+                            text: "Weekly working meetings would have been a better use of the time",
+                          },
+                        ].map((item, index) => (
+                          <div
+                            key={index}
+                            className="bg-[#37474F] py-[16px] px-[36px] rounded-lg flex  gap-[16px]"
+                          >
+                            <p>Icon</p>
+                            <p className="text-[#ECEFF1] font-[400]">
+                              {item.text}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                }
+              />
+            </div>
+            <Divider
+              sx={{ borderBottomWidth: "5px", borderColor: "#B0BEC5" }}
             />
           </div>
-        </div>
-      </div>
-      <div
-        className={`bg-[${darkBackground}] px-[16px] py-[32px] sm:py-[96px] sm:px-[120px] ${locationStyling}`}
-      >
-        <div className="flex flex-col sm:flex-row gap-[8px]">
-          {links.map((item, index) => (
-            <CustomCard
-              key={index}
-              label={item.label}
-              text={item.description}
-              url={item.url}
-              version="large"
-            />
-          ))}
-        </div>
-      </div>
+        }
+      />
+      <SectionLayout
+        backgroundColor="#263238"
+        content={<div>Research and Design</div>}
+      />
     </div>
   );
 };
