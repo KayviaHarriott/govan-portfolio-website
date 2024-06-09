@@ -15,8 +15,6 @@ import { SectionLayout } from "../components/SectionLayout";
 
 export const LandingPage = () => {
   // const padding = "py-[192px] px-[120px]";
-  const lightBackground = "#ECEFF1";
-  const darkBackground = "#263238";
   // const locationStyling = "flex justify-end";
 
   const links = [
@@ -80,7 +78,7 @@ export const LandingPage = () => {
 
       <div ref={introductionRef}>
         <SectionLayout
-          backgroundColor={darkBackground}
+          backgroundColor="#26323"
           content={
             <div>
               <div className="max-w-[550px] text-center flex flex-col justify-center items-center">
@@ -96,7 +94,7 @@ export const LandingPage = () => {
         />
       </div>
       <SectionLayout
-        backgroundColor={lightBackground}
+        backgroundColor="#ECEFF1"
         content={
           <div className="flex flex-col gap-[192px]">
             <div ref={theTeamRef}>
@@ -247,7 +245,7 @@ export const LandingPage = () => {
         }
       />
       <SectionLayout
-        backgroundColor={darkBackground}
+        backgroundColor="#26323"
         content={
           <div ref={timelineRef}>
             <SectionHeader
@@ -287,7 +285,7 @@ export const LandingPage = () => {
         }
       />
       <SectionLayout
-        backgroundColor={lightBackground}
+        backgroundColor="#ECEFF1"
         content={
           <div className="flex flex-col gap-[192px]">
             <div ref={retrospectiveRef}>
@@ -462,7 +460,7 @@ export const LandingPage = () => {
         }
       />
       <SectionLayout
-        backgroundColor={darkBackground}
+        backgroundColor="#26323"
         content={
           <div>
             <div className="flex flex-col sm:flex-row gap-[8px]">
