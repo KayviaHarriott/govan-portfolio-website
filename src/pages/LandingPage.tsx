@@ -14,10 +14,10 @@ import { SectionLayout } from "../components/SectionLayout";
 // import {Box} from "@mui/material";
 
 export const LandingPage = () => {
-  const padding = "py-[192px] px-[120px]";
+  // const padding = "py-[192px] px-[120px]";
   const lightBackground = "#ECEFF1";
   const darkBackground = "#263238";
-  const locationStyling = "flex justify-end";
+  // const locationStyling = "flex justify-end";
 
   const links = [
     {
@@ -78,9 +78,25 @@ export const LandingPage = () => {
         ]}
       />
 
-      <SectionLayout backgroundColor="#263238" content={<div>Project</div>} />
+      <div ref={introductionRef}>
+        <SectionLayout
+          backgroundColor={darkBackground}
+          content={
+            <div>
+              <div className="max-w-[550px] text-center flex flex-col justify-center items-center">
+                <img className="w-[156px]" src="/images/GovanLogo_Square.png" />
+                <h1 className="text-[64px] font-[700] text-[#FFFF]">Project</h1>
+                <p className="text-[#CFD8DC] ">
+                  A platform that streamlines the process of finding, scheduling
+                  and reviewing household services
+                </p>
+              </div>
+            </div>
+          }
+        />
+      </div>
       <SectionLayout
-        backgroundColor="#ECEFF1"
+        backgroundColor={lightBackground}
         content={
           <div className="flex flex-col gap-[192px]">
             <div ref={theTeamRef}>
@@ -139,16 +155,21 @@ export const LandingPage = () => {
                         {[
                           {
                             text: "Some providers would arrive late or not at all.",
+                            icon: "/icons/currencyIcon.png",
                           },
                           {
                             text: "Many people struggled to find reliable contact information.",
+                            icon: "/icons/currencyIcon.png",
                           },
                         ].map((item, index) => (
                           <div
                             key={index}
                             className="bg-[#37474F] w-fit py-[16px] px-[36px] rounded-lg flex flex-col gap-[16px]"
                           >
-                            <p>Icon</p>
+                            <img
+                              className="w-[22px] h-[22px]"
+                              src={item.icon}
+                            />
                             <p className="text-[#ECEFF1] font-[400]">
                               {item.text}
                             </p>
@@ -187,16 +208,21 @@ export const LandingPage = () => {
                         {[
                           {
                             text: "Costs were not available upfront and contact had to be made in order to find out",
+                            icon: "/icons/currencyIcon.png",
                           },
                           {
                             text: "Word of mouth is the main way people find service providers which is anecdotal",
+                            icon: "/icons/currencyIcon.png",
                           },
                         ].map((item, index) => (
                           <div
                             key={index}
                             className="bg-[#37474F] w-fit py-[16px] px-[36px] rounded-lg flex flex-col gap-[16px]"
                           >
-                            <p>Icon</p>
+                            <img
+                              className="w-[22px] h-[22px]"
+                              src={item.icon}
+                            />
                             <p className="text-[#ECEFF1] font-[400]">
                               {item.text}
                             </p>
@@ -221,9 +247,9 @@ export const LandingPage = () => {
         }
       />
       <SectionLayout
-        backgroundColor="#263238"
+        backgroundColor={darkBackground}
         content={
-          <div>
+          <div ref={timelineRef}>
             <SectionHeader
               title={`Timeline`}
               stylePreference={{ darkBackground: true }}
@@ -261,16 +287,17 @@ export const LandingPage = () => {
         }
       />
       <SectionLayout
-        backgroundColor="#ECEFF1"
+        backgroundColor={lightBackground}
         content={
           <div className="flex flex-col gap-[192px]">
-            {" "}
-            <SectionHeader
-              subtext={`Retrospective`}
-              title={`What we could have done better`}
-              text={`This was all our first times carrying out an end-to-end development 
-                  plan for a product and we had many success and mistakes.`}
-            />
+            <div ref={retrospectiveRef}>
+              <SectionHeader
+                subtext={`Retrospective`}
+                title={`What we could have done better`}
+                text={`This was all our first times carrying out an end-to-end development 
+                    plan for a product and we had many success and mistakes.`}
+              />
+            </div>
             <div className="flex flex-col gap-[8px]">
               <RadiusBackground
                 content={
@@ -295,19 +322,25 @@ export const LandingPage = () => {
                         {[
                           {
                             text: "In-app payment system",
+                            icon: "icons/currencyIcon.png",
                           },
                           {
                             text: "There should have been less service categories",
+                            icon: "icons/hammerIcon.png",
                           },
                           {
                             text: "In-app offers, deals, or special offers",
+                            icon: "icons/hammerIcon.png",
                           },
                         ].map((item, index) => (
                           <div
                             key={index}
                             className="bg-[#37474F] py-[16px] px-[36px] rounded-lg flex  gap-[16px]"
                           >
-                            <p>Icon</p>
+                            <img
+                              className="w-[22px] h-[22px]"
+                              src={item.icon}
+                            />
                             <p className="text-[#ECEFF1] font-[400]">
                               {item.text}
                             </p>
@@ -343,16 +376,21 @@ export const LandingPage = () => {
                         {[
                           {
                             text: "Estimating tasks, overly documenting and weekly sprints actually negatively the work",
+                            icon: "/icons/currencyIcon.png"
                           },
                           {
                             text: "Weekly working meetings would have been a better use of the time",
+                            icon: "/icons/hammerIcon.png"
                           },
                         ].map((item, index) => (
                           <div
                             key={index}
                             className="bg-[#37474F] py-[16px] px-[36px] rounded-lg flex  gap-[16px]"
                           >
-                            <p>Icon</p>
+                            <img
+                              className="w-[22px] h-[22px]"
+                              src={item.icon}
+                            />
                             <p className="text-[#ECEFF1] font-[400]">
                               {item.text}
                             </p>
@@ -367,12 +405,79 @@ export const LandingPage = () => {
             <Divider
               sx={{ borderBottomWidth: "5px", borderColor: "#B0BEC5" }}
             />
+            <div ref={nextStepsRef}>
+              <SectionHeader
+                subtext={`Next Steps`}
+                title={`Where we are`}
+                text={`This was all our first times carrying out an end-to-end 
+              development plan for a product and we had many success and mistakes.`}
+              />
+            </div>
+            <SectionHeader
+              subtext={`Philosophy`}
+              title={
+                <div>
+                  {" "}
+                  <p>Slow is smooth.</p>
+                  <p>Smooth is fast.</p>
+                </div>
+              }
+              text={
+                <div className="flex flex-col gap-[24px]">
+                  <p>
+                    This was our slogan when starting this project. In the past,
+                    we felt disappointed when projects didn't pan out but we
+                    decided we needed a change of mindset in approaching
+                    projects.
+                  </p>
+                  <p>
+                    This was a labour of love for Jamaica, of camaraderie
+                    between 3 close friends and a project to challenge
+                    ourselves. We hope you will return when we follow up with
+                    more updates!
+                  </p>
+                </div>
+              }
+              stylePreference={{ leftAligned: true, twoColumns: true }}
+            />
+            <SectionHeader
+              subtext={`Current Status`}
+              title={`Indefinite hiatus`}
+              text={
+                <div className="flex flex-col gap-[24px]">
+                  <p>
+                    We still haven't completed Govan with FE and a lot of
+                    research still needs to be done.
+                  </p>
+                  <p>
+                    We've had to put things on hiatus at the moment with one of
+                    the team migrating, one member getting familiar with a new
+                    workplace and another adjusting to a change in career.
+                  </p>
+                </div>
+              }
+              stylePreference={{ leftAligned: true, twoColumns: true }}
+            />
           </div>
         }
       />
       <SectionLayout
-        backgroundColor="#263238"
-        content={<div>Research and Design</div>}
+        backgroundColor={darkBackground}
+        content={
+          <div>
+            <div className="flex flex-col sm:flex-row gap-[8px]">
+              {links.map((item, index) => (
+                <CustomCard
+                  key={index}
+                  label={item.label}
+                  text={item.description}
+                  url={item.url}
+                  version="large"
+                />
+              ))}
+            </div>
+          </div>
+        }
       />
     </div>
   );
