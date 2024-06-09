@@ -45,7 +45,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         {title}
       </Box>
       <p className="font-[700] text-[32px]">{subtext}</p>
-      <p className="font-[400] text-[#37474F]">{text}</p>
+      <p className="font-[400] text-[#37474F] max-w-[400px]">{text}</p>
     </div>
   ) : (
     <div className="w-[100%] flex justify-center items-center">

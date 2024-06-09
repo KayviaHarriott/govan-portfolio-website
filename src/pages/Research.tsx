@@ -117,7 +117,7 @@ export const Research = () => {
                   />
                   <RadiusBackground
                     content={
-                      <div className="flex  gap-[8px]">
+                      <div className="flex gap-[8px]">
                         <div className="w-[100%] bg-[#37474F] p-[36px] rounded-[24px]">
                           One
                         </div>
@@ -165,7 +165,7 @@ export const Research = () => {
           <SectionLayout
             backgroundColor="#ECEFF1"
             content={
-              <div>
+              <div className="flex flex-col gap-[192px]">
                 <SectionHeader
                   subtext={`Approach 1`}
                   title={`Encouraging community`}
@@ -175,6 +175,73 @@ export const Research = () => {
                   after launch.`}
                   // stylePreference={{ darkBackground: true }}
                 />
+                <div className="flex flex-col gap-[8px]">
+                  <RadiusBackground
+                    content={
+                      <SectionHeader
+                        title={`Profiles`}
+                        text={`We wanted to create a space where users 
+                        would feel incentivized to contribute to the community.`}
+                        stylePreference={{
+                          leftAligned: true,
+                          twoColumns: true,
+                          darkBackground: true,
+                          smallTitle: true,
+                        }}
+                      />
+                    }
+                  />
+                  <RadiusBackground />
+                </div>
+                <div className="flex flex-col gap-[8px]">
+                  <RadiusBackground
+                    content={
+                      <SectionHeader
+                        title={`Comments`}
+                        text={`The review flow was added as a part of the rating flow for users
+                         to share their experiences that may not be captured with a rating system.`}
+                        stylePreference={{
+                          leftAligned: true,
+                          twoColumns: true,
+                          darkBackground: true,
+                          smallTitle: true,
+                        }}
+                      />
+                    }
+                  />
+                  <RadiusBackground />
+                </div>
+                <Divider
+                  sx={{ borderBottomWidth: "5px", borderColor: "#B0BEC5" }}
+                />
+
+                <SectionHeader
+                  subtext={`Approach 2`}
+                  title={`Safety and reporting`}
+                  text={`Our decisions were guided by user research and best practices 
+                  in digital security. We implemented intuitive, user-friendly 
+                  reporting tools and safety protocols to ensure that users 
+                  can confidently report any issues`}
+                  // stylePreference={{ darkBackground: true }}
+                />
+                <div className="flex flex-col gap-[8px]">
+                  <RadiusBackground
+                    content={
+                      <SectionHeader
+                        title={`Sharing appointment info`}
+                        text={`This feature was added for users to be able to send 
+                        to their friends and family which would keep `}
+                        stylePreference={{
+                          leftAligned: true,
+                          twoColumns: true,
+                          darkBackground: true,
+                          smallTitle: true,
+                        }}
+                      />
+                    }
+                  />
+                  <RadiusBackground />
+                </div>
               </div>
             }
           />
