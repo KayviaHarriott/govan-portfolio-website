@@ -5,6 +5,7 @@ import { InternalMenu } from "../components/InternalMenu";
 import { useRef } from "react";
 import { SectionLayout } from "../components/SectionLayout";
 import { CustomCard } from "../components/CustomCard";
+import { HighlightList } from "../components/HightlightList";
 // import { Link } from "react-router-dom";
 
 export const Research = () => {
@@ -67,9 +68,76 @@ export const Research = () => {
                 />
 
                 <div className="flex flex-col gap-[8px]">
-                  <RadiusBackground content={<></>} />
-                  <RadiusBackground content={<></>} />
-                  <RadiusBackground content={<></>} />
+                  <RadiusBackground
+                    content={
+                      <div className="flex flex-col gap-[24px]">
+                        <SectionHeader
+                          subtext={`Assumption 1`}
+                          title={`Renters reach out to businesses`}
+                          text={`This assumption was challenged during interview 
+                              process with renters`}
+                          stylePreference={{
+                            leftAligned: true,
+                            twoColumns: true,
+                            darkBackground: true,
+                            smallTitle: true,
+                          }}
+                        />
+                        <RadiusBackground
+                          title="Research Finding"
+                          text="Renters actually reach out to landlords when they need household services."
+                          stylePreferences={{ lightBackground: true }}
+                        />
+                      </div>
+                    }
+                  />
+                  <RadiusBackground
+                    content={
+                      <div className="flex flex-col gap-[24px]">
+                        <SectionHeader
+                          subtext={`Assumption 2`}
+                          title={`We assumed users needed a broad 
+                          selection of household services`}
+                          text={`This assumption came from the competitive research 
+                          where many competitors offered a wide array of services`}
+                          stylePreference={{
+                            leftAligned: true,
+                            twoColumns: true,
+                            darkBackground: true,
+                            smallTitle: true,
+                          }}
+                        />
+                        <RadiusBackground
+                          title="Research Finding"
+                          text=" Most renters/landlords have a set of 4 - 5 services that are sought after most frequently"
+                          stylePreferences={{ lightBackground: true }}
+                        />
+                      </div>
+                    }
+                  />
+                  <RadiusBackground
+                    content={
+                      <div className="flex  gap-[8px]">
+                        <div className="w-[100%] bg-[#37474F] p-[36px] rounded-[24px]">
+                          One
+                        </div>
+                        <div className="w-[100%] bg-[#37474F] p-[36px] rounded-[24px]">
+                          <HighlightList
+                            list={[
+                              { label: "Home Repair" },
+                              { label: "Plumbing", highlight: true },
+                              { label: "Electrical", highlight: true },
+                              { label: "Cleaning", highlight: true },
+                              { label: "Appliance Repair", highlight: true },
+                              { label: "Automotive Repair" },
+                              { label: "Moving" },
+                              { label: "Gardening" },
+                            ]}
+                          />
+                        </div>
+                      </div>
+                    }
+                  />
                 </div>
               </div>
             }
@@ -128,23 +196,23 @@ export const Research = () => {
           />
         </div>
         <SectionLayout
-        backgroundColor="#263238"
-        content={
-          <div>
-            <div className="flex flex-col sm:flex-row gap-[8px]">
-              {links.map((item, index) => (
-                <CustomCard
-                  key={index}
-                  label={item.label}
-                  text={item.description}
-                  url={item.url}
-                  version="large"
-                />
-              ))}
+          backgroundColor="#263238"
+          content={
+            <div>
+              <div className="flex flex-col sm:flex-row gap-[8px]">
+                {links.map((item, index) => (
+                  <CustomCard
+                    key={index}
+                    label={item.label}
+                    text={item.description}
+                    url={item.url}
+                    version="large"
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        }
-      />
+          }
+        />
       </div>
     </>
   );

@@ -12,6 +12,7 @@ interface SectionHeaderProps {
     leftAligned?: true;
     twoColumns?: true;
     pageHeader?: true;
+    smallTitle?: true;
   };
 }
 
@@ -53,7 +54,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
           stylePreference?.leftAligned ? "text-left" : "text-center"
         } ${
           stylePreference?.twoColumns
-            ? "flex justify-between gap-[24px]"
+            ? "flex justify-between gap-[24px] "
             : "max-w-[520px] "
         }`}
       >
@@ -69,29 +70,52 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
               {subtext}
             </h5>
           </Box>
-          <h1
-            className={`text-[${
-              stylePreference?.darkBackground ? `#ECEFF1` : `#263238`
-            }] text-[32px] font-[700] text-title-custom  ${
-              stylePreference?.twoColumns ? "w-[400px]" : ""
-            } `}
-          >
-            {title}
-          </h1>
+          <Box className={`flex w-[100%] ${stylePreference?.leftAligned  ? "" : "text-center justify-center items-center"}`}>
+            <h1
+              className={`text-[${
+                stylePreference?.darkBackground ? `#ECEFF1` : `#263238`
+              }] ${
+                stylePreference?.smallTitle ? `text-[20px] ` : `text-[32px]`
+              }  font-[700] text-title-custom  ${
+                stylePreference?.twoColumns ? "w-[400px]" : ""
+              } `}
+            >
+              {title}
+            </h1>
+            {stylePreference?.smallTitle && (
+              <Box
+                sx={{
+                  color: stylePreference?.darkBackground
+                    ? "#CFD8DC"
+                    : "#546E7A",
+                }}
+              >
+                <p
+                  className={`${
+                    stylePreference?.twoColumns ? "max-w-[520px]" : " "
+                  }`}
+                >
+                  {text}
+                </p>
+              </Box>
+            )}
+          </Box>
         </div>
-        <Box
-          sx={{
-            color: stylePreference?.darkBackground ? "#CFD8DC" : "#546E7A",
-          }}
-        >
-          <p
-            className={`${
-              stylePreference?.twoColumns ? "max-w-[520px]" : " "
-            }`}
+        {!stylePreference?.smallTitle && (
+          <Box
+            sx={{
+              color: stylePreference?.darkBackground ? "#CFD8DC" : "#546E7A",
+            }}
           >
-            {text}
-          </p>
-        </Box>
+            <p
+              className={`${
+                stylePreference?.twoColumns ? "max-w-[520px]" : " "
+              }`}
+            >
+              {text}
+            </p>
+          </Box>
+        )}
       </div>
     </div>
   );
