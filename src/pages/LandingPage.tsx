@@ -7,6 +7,10 @@ import // useEffect,
 "react";
 import { RadiusBackground } from "../components/RadiusBackground";
 import { CustomTimeline } from "../components/Timeline";
+// import { Link } from "react-router-dom";
+import { InternalMenu } from "../components/InternalMenu";
+import { useRef } from "react";
+import { SectionLayout } from "../components/SectionLayout";
 // import {Box} from "@mui/material";
 
 export const LandingPage = () => {
@@ -81,8 +85,32 @@ export const LandingPage = () => {
   //   return () => window.removeEventListener("scroll", handleScroll);
   // }, []);
 
+  const introductionRef = useRef<HTMLDivElement>(null);
+  const theTeamRef = useRef<HTMLDivElement>(null);
+  const theProblemRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const retrospectiveRef = useRef<HTMLDivElement>(null);
+  const nextStepsRef = useRef<HTMLDivElement>(null);
+
   return (
     <div className="relative">
+      <SectionLayout backgroundColor="#263238" content={<div> One</div>} />
+      <div className="fixed top-30">{/* <p>Menu</p>{" "} */}</div>
+      <div className="flex w-[100%]">
+        <div className="bg-[pink] w-1/3">One</div>
+        <div className="bg-[green] w-2/3">Two</div>
+      </div>
+      <InternalMenu
+        links={[
+          { label: "Introduction", ref: introductionRef },
+          { label: "The team", ref: theTeamRef },
+          { label: "The problem", ref: theProblemRef },
+          { label: "Timeline", ref: timelineRef },
+          { label: "Retrospective", ref: retrospectiveRef },
+          { label: "Next steps", ref: nextStepsRef },
+        ]}
+      />
+
       {/* <Box
         ref={navRef}
         sx={{
@@ -124,7 +152,7 @@ export const LandingPage = () => {
       <div
         className={`bg-[${lightBackground}] py-[192px] px-[120px] ${padding}  ${locationStyling} flex justify-end items-end`}
       >
-        <div className="max-w-[1000px]">
+        <div ref={theTeamRef} className="max-w-[1000px]">
           <div className={`flex flex-col gap-[96px]`}>
             <SectionHeader
               subtext={`The Team`}
@@ -418,7 +446,7 @@ export const LandingPage = () => {
                     This was a labour of love for Jamaica, of camaraderie
                     between 3 close friends and a project to challenge
                     ourselves. We hope you will return when we follow up with
-                    more updates!`
+                    more updates!
                   </p>
                 </div>
               }
