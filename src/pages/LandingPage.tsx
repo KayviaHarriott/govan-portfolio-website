@@ -78,7 +78,7 @@ export const LandingPage = () => {
 
       <div ref={introductionRef}>
         <SectionLayout
-          backgroundColor="#26323"
+          backgroundColor="#263238"
           content={
             <div>
               <div className="max-w-[550px] text-center flex flex-col justify-center items-center">
@@ -245,7 +245,7 @@ export const LandingPage = () => {
         }
       />
       <SectionLayout
-        backgroundColor="#26323"
+        backgroundColor="#263238"
         content={
           <div ref={timelineRef}>
             <SectionHeader
@@ -460,7 +460,7 @@ export const LandingPage = () => {
         }
       />
       <SectionLayout
-        backgroundColor="#26323"
+        backgroundColor="#263238"
         content={
           <div>
             <div className="flex flex-col sm:flex-row gap-[8px]">
